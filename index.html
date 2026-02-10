@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bubbly - Santa Cruz Sparkling Water</title>
+    <title>bubbly - hey u, wanna splash? 🌊</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,443 +15,503 @@
         }
 
         body {
-            font-family: 'Raleway', sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
+            font-family: 'Fredoka', sans-serif;
+            color: #333;
             overflow-x: hidden;
+            background: #fff;
         }
 
-        /* Santa Cruz Color Palette */
+        /* Playful Bubly-inspired Colors */
         :root {
-            --ocean-blue: #2E86AB;
-            --surf-teal: #52BAA6;
-            --sand: #F8E9A1;
-            --sunset: #FF6B6B;
-            --sky: #A8DADC;
-            --cypress: #4A5759;
-            --white: #FFFFFF;
+            --bubbly-pink: #FF6B9D;
+            --bubbly-blue: #4CC9F0;
+            --bubbly-yellow: #FFD60A;
+            --bubbly-green: #06FFA5;
+            --bubbly-purple: #B565D8;
+            --bubbly-orange: #FF9E00;
+            --light-bg: #F8F9FA;
         }
 
-        /* Hero Section - Beach Vibes */
+        /* Hero Section - Big, Bold, Playful */
         .hero {
-            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--surf-teal) 100%);
-            color: var(--white);
-            padding: 120px 20px 80px;
+            background: linear-gradient(135deg, var(--bubbly-pink) 0%, var(--bubbly-blue) 100%);
+            color: white;
+            padding: 100px 20px 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '🌊';
+        /* Floating bubble animations */
+        .bubble {
             position: absolute;
-            font-size: 300px;
-            opacity: 0.08;
-            top: -80px;
-            right: -80px;
-            animation: wave 8s ease-in-out infinite;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float-up 8s infinite ease-in-out;
         }
 
-        .hero::after {
-            content: '🏄';
-            position: absolute;
-            font-size: 200px;
-            opacity: 0.08;
-            bottom: -50px;
-            left: -50px;
-            animation: float 6s ease-in-out infinite;
+        .bubble:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-delay: 0s;
         }
 
-        @keyframes wave {
-            0%, 100% { transform: rotate(0deg) translateY(0px); }
-            50% { transform: rotate(5deg) translateY(-20px); }
+        .bubble:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            left: 70%;
+            animation-delay: 2s;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-30px); }
+        .bubble:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            left: 85%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
         }
 
         .hero h1 {
-            font-family: 'Righteous', cursive;
-            font-size: 4rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            letter-spacing: 2px;
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: lowercase;
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 span {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            font-weight: 300;
-            font-style: italic;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+            text-transform: lowercase;
+            position: relative;
+            z-index: 10;
         }
 
         .location {
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-            opacity: 0.9;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 10;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 18px 45px;
-            background: var(--sunset);
-            color: var(--white);
+            padding: 20px 50px;
+            background: white;
+            color: var(--bubbly-pink);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            text-transform: lowercase;
+            position: relative;
+            z-index: 10;
         }
 
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            background: #ff5252;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
-        /* About Section - Surf Culture */
-        .about {
+        /* Smiley Face Section */
+        .smiley-section {
             padding: 80px 20px;
-            background: var(--sky);
+            background: var(--bubbly-yellow);
             text-align: center;
         }
 
-        .about h2 {
-            font-family: 'Righteous', cursive;
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            color: var(--ocean-blue);
+        .smiley {
+            font-size: 10rem;
+            margin-bottom: 20px;
+            animation: wiggle 3s infinite;
         }
 
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--cypress);
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
         }
 
-        .about-content strong {
-            color: var(--ocean-blue);
+        .smiley-section h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #333;
+            text-transform: lowercase;
             font-weight: 600;
         }
 
-        /* Benefits Section - Natural Wood & Ocean */
-        .benefits {
-            padding: 80px 20px;
-            max-width: 1200px;
+        .smiley-section p {
+            font-size: 1.3rem;
+            max-width: 700px;
             margin: 0 auto;
-        }
-
-        .benefits h2 {
-            font-family: 'Righteous', cursive;
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 60px;
-            color: var(--surf-teal);
-        }
-
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .benefit {
-            background: linear-gradient(135deg, var(--white) 0%, var(--sky) 100%);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 3px solid var(--surf-teal);
-        }
-
-        .benefit:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(46, 134, 171, 0.3);
-        }
-
-        .benefit-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-
-        .benefit h3 {
-            font-family: 'Righteous', cursive;
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: var(--ocean-blue);
-        }
-
-        .benefit p {
-            font-size: 1.05rem;
-            color: var(--cypress);
             line-height: 1.6;
+            color: #555;
         }
 
-        /* Flavors Section - Sunset Gradient */
+        /* Flavors Section - Colorful Grid */
         .flavors {
-            background: linear-gradient(135deg, var(--sunset) 0%, var(--surf-teal) 100%);
             padding: 80px 20px;
-            color: var(--white);
+            background: var(--light-bg);
         }
 
         .flavors h2 {
-            font-family: 'Righteous', cursive;
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             margin-bottom: 60px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            color: #333;
+            text-transform: lowercase;
+            font-weight: 600;
         }
 
-        .flavor-cards {
+        .flavor-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .flavor-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 35px;
-            border-radius: 25px;
+            padding: 50px 30px;
+            border-radius: 30px;
             text-align: center;
-            border: 3px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .flavor-card:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.05);
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
 
+        .flavor-card.pink { background: var(--bubbly-pink); }
+        .flavor-card.blue { background: var(--bubbly-blue); }
+        .flavor-card.yellow { background: var(--bubbly-yellow); }
+        .flavor-card.green { background: var(--bubbly-green); }
+        .flavor-card.purple { background: var(--bubbly-purple); }
+        .flavor-card.orange { background: var(--bubbly-orange); }
+
         .flavor-card h3 {
-            font-family: 'Righteous', cursive;
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
+            color: white;
+            text-transform: lowercase;
+            font-weight: 600;
         }
 
         .flavor-card p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            text-transform: lowercase;
+            font-weight: 400;
         }
 
-        /* Santa Cruz Spirit Section */
-        .spirit {
+        .flavor-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        /* Why Section */
+        .why {
             padding: 80px 20px;
-            background: var(--sand);
+            background: white;
             text-align: center;
         }
 
-        .spirit h2 {
-            font-family: 'Righteous', cursive;
-            font-size: 2.8rem;
-            margin-bottom: 40px;
-            color: var(--ocean-blue);
+        .why h2 {
+            font-size: 3.5rem;
+            margin-bottom: 50px;
+            color: var(--bubbly-blue);
+            text-transform: lowercase;
+            font-weight: 600;
         }
 
-        .spirit-content {
-            max-width: 1000px;
-            margin: 0 auto;
+        .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .spirit-item {
-            background: var(--white);
+        .why-item {
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
-        .spirit-item h3 {
-            font-family: 'Righteous', cursive;
-            color: var(--surf-teal);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
+        .why-item h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--bubbly-pink);
+            text-transform: lowercase;
+            font-weight: 600;
         }
 
-        .spirit-item p {
-            color: var(--cypress);
-            font-size: 1.05rem;
+        .why-item p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
         }
 
-        /* Footer - Cypress Wood */
-        footer {
-            background: var(--cypress);
-            color: var(--white);
+        .emoji-big {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Santa Cruz Vibes Section */
+        .santa-cruz {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--bubbly-blue) 0%, var(--bubbly-green) 100%);
+            color: white;
             text-align: center;
-            padding: 50px 20px;
+        }
+
+        .santa-cruz h2 {
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            text-transform: lowercase;
+            font-weight: 600;
+        }
+
+        .santa-cruz p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .vibe-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .vibe-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 60px 20px 40px;
         }
 
         .footer-logo {
-            font-family: 'Righteous', cursive;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
+            text-transform: lowercase;
+            font-weight: 700;
         }
 
         footer p {
             opacity: 0.8;
             margin: 10px 0;
+            font-size: 1.1rem;
         }
 
         .footer-links {
-            margin-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: var(--sand);
+            color: var(--bubbly-yellow);
             text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--surf-teal);
+            color: var(--bubbly-pink);
+            transform: scale(1.1);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
             
             .tagline {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
-            .benefits h2,
             .flavors h2,
-            .spirit h2,
-            .about h2 {
-                font-size: 2.2rem;
+            .why h2,
+            .santa-cruz h2 {
+                font-size: 2.5rem;
+            }
+
+            .smiley {
+                font-size: 6rem;
             }
         }
     </style>
 </head>
 <body>
     <section class="hero">
-        <h1>🌊 BUBBLY 🏄</h1>
-        <p class="tagline">Ride the Wave of Refreshment</p>
-        <p class="location">📍 Born in Santa Cruz, California</p>
-        <a href="#flavors" class="cta-button">Catch the Bubbles</a>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <h1><span>b</span><span>u</span><span>b</span><span>b</span><span>l</span><span>y</span> 🌊</h1>
+        <p class="tagline">hey u, ready to make a splash?</p>
+        <p class="location">🏄 straight outta santa cruz</p>
+        <a href="#flavors" class="cta-button">catch the vibe ☀️</a>
     </section>
 
-    <section class="about">
-        <h2>The Santa Cruz Way</h2>
-        <div class="about-content">
-            <p>
-                Inspired by the <strong>laid-back surf culture</strong> of Santa Cruz, Bubbly brings you 
-                <strong>pure, refreshing sparkling water</strong> that captures the essence of California's 
-                most iconic beach town. From the legendary waves of <strong>Steamer Lane</strong> to the 
-                sun-drenched shores of <strong>Pleasure Point</strong>, every sip embodies the spirit of 
-                freedom, adventure, and natural beauty.
-            </p>
-            <br>
-            <p>
-                We believe in keeping it <strong>simple, pure, and authentic</strong> — just like a perfect 
-                day at the beach. Zero calories. Zero sugar. Zero compromises. Just crystal-clear bubbles 
-                and natural flavors inspired by the coastal paradise we call home.
-            </p>
-        </div>
-    </section>
-
-    <section class="benefits">
-        <h2>Why Ride with Bubbly?</h2>
-        <div class="benefit-grid">
-            <div class="benefit">
-                <div class="benefit-icon">💧</div>
-                <h3>Pure & Natural</h3>
-                <p>Sourced from California's pristine springs. Real fruit essences, no artificial anything. Just nature's best.</p>
-            </div>
-            <div class="benefit">
-                <div class="benefit-icon">🌿</div>
-                <h3>Zero Everything</h3>
-                <p>Zero calories. Zero sugar. Zero sweeteners. Maximum refreshment without the guilt.</p>
-            </div>
-            <div class="benefit">
-                <div class="benefit-icon">♻️</div>
-                <h3>Ocean-Friendly</h3>
-                <p>100% recyclable packaging. Protecting the waves we love, one can at a time.</p>
-            </div>
-            <div class="benefit">
-                <div class="benefit-icon">⚡</div>
-                <h3>Perfect Fizz</h3>
-                <p>Just the right amount of sparkle — crisp, refreshing, and endlessly drinkable.</p>
-            </div>
-        </div>
+    <section class="smiley-section">
+        <div class="smiley">😊</div>
+        <h2>love at first psssht</h2>
+        <p>
+            no boring here. just pure, bubbly goodness inspired by sunny days, epic waves, 
+            and that santa cruz energy. zero calories, zero sugar, zero drama. 
+            just you + bubbles = ☀️
+        </p>
     </section>
 
     <section class="flavors" id="flavors">
-        <h2>Our Lineup</h2>
-        <div class="flavor-cards">
-            <div class="flavor-card">
-                <h3>🍋 Citrus Sunrise</h3>
-                <p>Bright lemon & lime<br>Morning vibes</p>
+        <h2>meet the crew 🎉</h2>
+        <div class="flavor-grid">
+            <div class="flavor-card pink">
+                <div class="flavor-icon">🍓</div>
+                <h3>strawberry</h3>
+                <p>sweet vibes only</p>
             </div>
-            <div class="flavor-card">
-                <h3>🌺 Tropical Wave</h3>
-                <p>Pineapple & mango<br>Island escape</p>
+            <div class="flavor-card blue">
+                <div class="flavor-icon">🍋</div>
+                <h3>lemon</h3>
+                <p>zesty & fresh</p>
             </div>
-            <div class="flavor-card">
-                <h3>🍓 Berry Tide</h3>
-                <p>Mixed berries<br>Sweet & subtle</p>
+            <div class="flavor-card yellow">
+                <div class="flavor-icon">🍊</div>
+                <h3>orange</h3>
+                <p>sunshine in a can</p>
             </div>
-            <div class="flavor-card">
-                <h3>🥒 Cucumber Chill</h3>
-                <p>Cool cucumber & mint<br>Zen refreshment</p>
+            <div class="flavor-card green">
+                <div class="flavor-icon">🥒</div>
+                <h3>cucumber</h3>
+                <p>chill mode activated</p>
             </div>
-            <div class="flavor-card">
-                <h3>🍊 Sunset Grapefruit</h3>
-                <p>Ruby red grapefruit<br>Coastal classic</p>
+            <div class="flavor-card purple">
+                <div class="flavor-icon">🍇</div>
+                <h3>grape</h3>
+                <p>bold & bubbly</p>
             </div>
-            <div class="flavor-card">
-                <h3>💎 Original</h3>
-                <p>Pure bubbles<br>Timeless simplicity</p>
+            <div class="flavor-card orange">
+                <div class="flavor-icon">🍑</div>
+                <h3>peach</h3>
+                <p>peachy keen</p>
             </div>
         </div>
     </section>
 
-    <section class="spirit">
-        <h2>The Santa Cruz Spirit</h2>
-        <div class="spirit-content">
-            <div class="spirit-item">
-                <h3>🏄 Surf Culture</h3>
-                <p>Born where Jack O'Neill pioneered the wetsuit and legends still chase epic swells</p>
+    <section class="why">
+        <h2>why bubbly? 🤔</h2>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="emoji-big">💧</div>
+                <h3>just bubbles</h3>
+                <p>no sugar, no calories, no weird stuff. just sparkling water doing its thing.</p>
             </div>
-            <div class="spirit-item">
-                <h3>🌲 Natural Beauty</h3>
-                <p>Inspired by cypress trees, redwood forests, and endless ocean horizons</p>
+            <div class="why-item">
+                <div class="emoji-big">🌈</div>
+                <h3>flavor party</h3>
+                <p>real fruit flavors that actually taste good. no cap.</p>
             </div>
-            <div class="spirit-item">
-                <h3>☀️ Laid-Back Vibes</h3>
-                <p>Embracing the bohemian, easygoing energy that makes Santa Cruz special</p>
+            <div class="why-item">
+                <div class="emoji-big">♻️</div>
+                <h3>ocean love</h3>
+                <p>we keep our beaches clean. 100% recyclable, always.</p>
             </div>
-            <div class="spirit-item">
-                <h3>🌊 Ocean First</h3>
-                <p>Committed to protecting the waves, beaches, and marine life we cherish</p>
+            <div class="why-item">
+                <div class="emoji-big">😎</div>
+                <h3>good vibes</h3>
+                <p>life's too short for boring drinks. crack one open and smile.</p>
             </div>
+        </div>
+    </section>
+
+    <section class="santa-cruz">
+        <h2>born by the beach 🏖️</h2>
+        <p>
+            santa cruz isn't just where we're from — it's who we are. surf culture, 
+            boardwalk vibes, redwood forests, and endless summer energy. every can 
+            is packed with that west coast spirit.
+        </p>
+        <p>
+            from steamer lane to the beach boardwalk, we're all about keeping it 
+            real, keeping it fun, and keeping it bubbly. 🌊
+        </p>
+        <div class="vibe-tags">
+            <div class="vibe-tag">🏄 surf culture</div>
+            <div class="vibe-tag">☀️ endless summer</div>
+            <div class="vibe-tag">🌲 redwood chill</div>
+            <div class="vibe-tag">🎢 boardwalk fun</div>
+            <div class="vibe-tag">🌊 ocean first</div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-logo">BUBBLY</div>
-        <p>&copy; 2026 Bubbly Sparkling Water. All rights reserved.</p>
-        <p>📍 Santa Cruz, California</p>
-        <p>Made with 🌊 and endless summer vibes</p>
+        <div class="footer-logo">bubbly</div>
+        <p>© 2026 bubbly sparkling water</p>
+        <p>📍 santa cruz, california</p>
+        <p>made with 💙 and lots of bubbles</p>
         <div class="footer-links">
-            <a href="#">About</a>
-            <a href="#">Shop</a>
-            <a href="#">Contact</a>
-            <a href="#">Instagram</a>
+            <a href="#">about</a>
+            <a href="#">shop</a>
+            <a href="#">contact</a>
+            <a href="#">instagram</a>
+            <a href="#">tiktok</a>
         </div>
     </footer>
 </body>
